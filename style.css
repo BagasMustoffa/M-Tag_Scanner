@@ -1,0 +1,183 @@
+/* RESET & FONT DASAR */
+:root {
+    --color-primary: #007bff; /* Biru Profesional */
+    --color-success: #28a745; /* Hijau untuk Asli */
+    --color-danger: #dc3545; /* Merah untuk Palsu */
+    --color-text: #333;
+    --color-background: #f8f9fa;
+    --color-border: #dee2e6;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* HEADER */
+header {
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.subtitle {
+    font-size: 0.8em;
+    color: #6c757d;
+    margin-top: 2px;
+}
+
+/* MAIN CONTAINER (RESPONSIVITAS APLIKASI) */
+#app-container {
+    width: 90%;
+    max-width: 400px; /* Batasan tampilan mobile */
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* LAYOUT UMUM SCREEN */
+.screen {
+    display: none; /* Default tersembunyi */
+    animation: fadeIn 0.5s;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* TOMBOL */
+.primary-btn, .secondary-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.primary-btn {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #0056b3;
+}
+
+.secondary-btn {
+    background-color: #f0f0f0;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+
+.secondary-btn:hover {
+    background-color: #e2e6ea;
+}
+
+/* SCAN SCREEN STYLING */
+.icon-scan {
+    font-size: 80px;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+/* RESULT SCREEN STYLING */
+#result-icon-container {
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+.result-authentic #result-icon-container {
+    color: var(--color-success);
+}
+
+.result-counterfeit #result-icon-container {
+    color: var(--color-danger);
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+/* DETAIL TABLE */
+#product-details {
+    margin: 30px 0;
+    padding: 15px;
+    background-color: var(--color-background);
+    border-radius: 8px;
+    text-align: left;
+}
+#product-details h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: var(--color-primary);
+}
+#product-details table {
+    width: 100%;
+    border-collapse: collapse;
+}
+#product-details th, #product-details td {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+#product-details th {
+    width: 40%;
+    font-weight: normal;
+    color: #6c757d;
+}
+#product-details td {
+    text-align: right;
+    font-weight: bold;
+}
+
+/* LOADING STYLING (Loader) */
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid var(--color-primary);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin: 30px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-hidden, .result-hidden {
+    display: none !important;
+}
