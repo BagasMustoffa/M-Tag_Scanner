@@ -1,58 +1,52 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M-TAG Scanner - Verifikasi Keaslian</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M-TAG Scanner</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Icons untuk ikon hasil -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 </head>
 <body>
+  <header>
+    <h1>M-TAG</h1>
+    <p>Solusi Anti-Pemalsuan</p>
+  </header>
 
-    <header>
-        <div class="logo">M-TAG</div>
-        <div class="subtitle">Solusi Anti-Pemalsuan</div>
-    </header>
+  <!-- SCREEN 1: Halaman awal untuk mulai scan -->
+  <main id="scan-screen" class="active screen">
+    <div class="scan-container">
+      <h2>Siap memindai chip RFID Anda</h2>
+      <button id="start-scan-btn">Mulai Pemindaian</button>
+    </div>
+  </main>
 
-    <main id="app-container">
-        <section id="scan-screen" class="screen active">
-            <span class="material-symbols-outlined icon-scan">
-                qr_code_scanner
-            </span>
-            <h1>Verifikasi Produk Anda</h1>
-            <p>Dekatkan chip M-TAG pada produk fashion Anda untuk memindai keaslian.</p>
-            <button id="start-scan-btn" class="primary-btn">
-                Mulai Pindai
-            </button>
-        </section>
+  <!-- SCREEN 2: Loading simulasi -->
+  <main id="loading-screen" class="screen">
+    <div class="loading-container">
+      <div class="spinner"></div>
+      <p>Memverifikasi chip RFID...</p>
+    </div>
+  </main>
 
-        <section id="result-screen" class="screen result-hidden">
-            <div id="result-icon-container">
-                </div>
-            <h1 id="result-headline"></h1>
-            <p id="result-message"></p>
-            
-            <div id="product-details" style="display: none;">
-                <h3>Detail Produk</h3>
-                <table>
-                    <tr><th>Nama Brand</th><td id="brand-name"></td></tr>
-                    <tr><th>Model</th><td id="product-model"></td></tr>
-                    <tr><th>Kode Verifikasi</th><td id="verification-code"></td></tr>
-                </table>
-            </div>
+  <!-- SCREEN 3: Hasil pemindaian -->
+  <main id="result-screen" class="screen">
+    <div class="result-container">
+      <div id="result-icon-container"></div>
+      <h2 id="result-headline"></h2>
+      <p id="result-message"></p>
 
-            <button id="scan-again-btn" class="secondary-btn">
-                Pindai Ulang
-            </button>
-        </section>
+      <div id="product-details" style="display:none;">
+        <p><strong>Brand:</strong> <span id="brand-name"></span></p>
+        <p><strong>Model:</strong> <span id="product-model"></span></p>
+        <p><strong>Kode Verifikasi:</strong> <span id="verification-code"></span></p>
+      </div>
 
-        <section id="loading-screen" class="screen loading-hidden">
-            <div class="loader"></div>
-            <h1>Memverifikasi Keaslian...</h1>
-            <p>Mohon tunggu sebentar, kami sedang memvalidasi data chip dengan server.</p>
-        </section>
-    </main>
+      <button id="scan-again-btn">Pindai Lagi</button>
+    </div>
+  </main>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

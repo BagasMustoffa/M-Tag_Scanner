@@ -1,183 +1,226 @@
-/* RESET & FONT DASAR */
+/* ==========================
+   Global Styling
+========================== */
+
 :root {
-    --color-primary: #007bff; /* Biru Profesional */
-    --color-success: #28a745; /* Hijau untuk Asli */
-    --color-danger: #dc3545; /* Merah untuk Palsu */
-    --color-text: #333;
-    --color-background: #f8f9fa;
-    --color-border: #dee2e6;
+  --primary-color: #007bff;
+  --success-color: #22c55e;
+  --error-color: #ef4444;
+  --text-color: #1e293b;
+  --background-color: #f8fafc;
+  --card-color: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--color-background);
-    color: var(--color-text);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
 }
 
-/* HEADER */
+/* ==========================
+   Header
+========================== */
+
 header {
-    width: 100%;
-    padding: 20px 0;
-    text-align: center;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  text-align: center;
+  padding: 2rem 1rem 1rem 1rem;
 }
 
-.logo {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: var(--color-primary);
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 1px;
 }
 
-.subtitle {
-    font-size: 0.8em;
-    color: #6c757d;
-    margin-top: 2px;
+header p {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
 }
 
-/* MAIN CONTAINER (RESPONSIVITAS APLIKASI) */
-#app-container {
-    width: 90%;
-    max-width: 400px; /* Batasan tampilan mobile */
-    margin: 40px auto;
-    padding: 30px;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    text-align: center;
-}
+/* ==========================
+   Screens
+========================== */
 
-/* LAYOUT UMUM SCREEN */
 .screen {
-    display: none; /* Default tersembunyi */
-    animation: fadeIn 0.5s;
+  display: none;
+  width: 100%;
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--card-color);
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 16px var(--shadow-color);
+  text-align: center;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0;
+  transform: translateY(10px);
 }
 
 .screen.active {
-    display: block;
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* ==========================
+   Buttons
+========================== */
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+  margin-top: 1.5rem;
 }
 
-/* TOMBOL */
-.primary-btn, .secondary-btn {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: bold;
-    margin-top: 20px;
-    transition: background-color 0.3s;
-    width: 100%;
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
 }
 
-.primary-btn {
-    background-color: var(--color-primary);
-    color: white;
+button:active {
+  transform: translateY(0);
 }
 
-.primary-btn:hover {
-    background-color: #0056b3;
+/* ==========================
+   Scan Screen
+========================== */
+
+.scan-container h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
 }
 
-.secondary-btn {
-    background-color: #f0f0f0;
-    color: var(--color-text);
-    border: 1px solid var(--color-border);
+/* ==========================
+   Loading Screen
+========================== */
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.secondary-btn:hover {
-    background-color: #e2e6ea;
-}
-
-/* SCAN SCREEN STYLING */
-.icon-scan {
-    font-size: 80px;
-    color: var(--color-primary);
-    margin-bottom: 20px;
-}
-
-/* RESULT SCREEN STYLING */
-#result-icon-container {
-    font-size: 70px;
-    margin-bottom: 20px;
-}
-
-.result-authentic #result-icon-container {
-    color: var(--color-success);
-}
-
-.result-counterfeit #result-icon-container {
-    color: var(--color-danger);
-}
-
-h1 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-p {
-    color: #6c757d;
-    margin-bottom: 20px;
-}
-
-/* DETAIL TABLE */
-#product-details {
-    margin: 30px 0;
-    padding: 15px;
-    background-color: var(--color-background);
-    border-radius: 8px;
-    text-align: left;
-}
-#product-details h3 {
-    margin-top: 0;
-    font-size: 1.2em;
-    color: var(--color-primary);
-}
-#product-details table {
-    width: 100%;
-    border-collapse: collapse;
-}
-#product-details th, #product-details td {
-    padding: 8px 0;
-    border-bottom: 1px solid var(--color-border);
-}
-#product-details th {
-    width: 40%;
-    font-weight: normal;
-    color: #6c757d;
-}
-#product-details td {
-    text-align: right;
-    font-weight: bold;
-}
-
-/* LOADING STYLING (Loader) */
-.loader {
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid var(--color-primary);
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 1s linear infinite;
-    margin: 30px auto;
+.spinner {
+  border: 5px solid #e2e8f0;
+  border-top: 5px solid var(--primary-color);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1.5rem;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.loading-hidden, .result-hidden {
-    display: none !important;
+.loading-container p {
+  font-size: 1rem;
+  color: #64748b;
+}
+
+/* ==========================
+   Result Screen
+========================== */
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#result-icon-container {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.material-symbols-outlined {
+  font-size: 4rem !important;
+}
+
+#result-headline {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+#result-message {
+  color: #64748b;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  padding: 0 0.5rem;
+}
+
+#product-details {
+  width: 100%;
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+#product-details p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+.result-authentic #result-icon-container span {
+  color: var(--success-color);
+}
+
+.result-counterfeit #result-icon-container span {
+  color: var(--error-color);
+}
+
+.result-authentic #result-headline {
+  color: var(--success-color);
+}
+
+.result-counterfeit #result-headline {
+  color: var(--error-color);
+}
+
+/* ==========================
+   Responsiveness
+========================== */
+
+@media (max-width: 600px) {
+  .screen {
+    margin: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  header h1 {
+    font-size: 1.75rem;
+  }
+
+  #result-message {
+    font-size: 0.9rem;
+  }
 }
