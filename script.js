@@ -106,4 +106,4 @@ scanAgainBtn.addEventListener('click', () => {
 
 // Inisialisasi: Pastikan dimulai dari layar scan
 switchScreen(scanScreen);
-
+// BARIS INI KOSONG (menghilangkan kurung kurawal ekstra)
